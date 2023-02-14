@@ -1,0 +1,489 @@
+{
+	"info": {
+		"_postman_id": "a988694e-7cc3-47c5-bade-8460e8fa1c6e",
+		"name": "cadastral",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25185418"
+	},
+	"item": [
+		{
+			"name": "localhost:5000/cadastral",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "uid",
+							"value": "dlfhdlfhjf72yfuqf977ffy98f",
+							"type": "text"
+						},
+						{
+							"key": "cadastralnumber",
+							"value": "27:54:82:00:87:45",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "Test for Docker 10",
+							"type": "text"
+						},
+						{
+							"key": "namedoc",
+							"type": "file",
+							"src": "/C:/JS/in/arc.zip"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/cadastral",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"cadastral"
+					]
+				},
+				"description": "ZIP"
+			},
+			"response": [
+				{
+					"name": "localhost:5000/cadastral/pdf",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "uid",
+									"value": "dlfhdlfhjf72yfuqf977ffy98f",
+									"type": "text"
+								},
+								{
+									"key": "cadastralnumber",
+									"value": "27:54:82:00:87:45",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Test for Docker 10",
+									"type": "text"
+								},
+								{
+									"key": "namedoc",
+									"type": "file",
+									"src": "/C:/JS/in/arc.zip"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/cadastral/zip",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"cadastral",
+								"zip"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "655"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28f-U0cFPIpWzc4ZbEQ5k7J4cdxEBaU\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Feb 2023 07:38:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 4,\n        \"uid\": \"34fg21ff44jd34a2ad8752fd\",\n        \"cadastralnumber\": \"21:34:46:63:98:03\",\n        \"content\": \"Testing JSON 00\",\n        \"namejsonfile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile.json\",\n        \"namepdffile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile.pdf\",\n        \"createdAt\": \"2023-02-14T07:38:09.950Z\",\n        \"updatedAt\": \"2023-02-14T07:38:09.950Z\"\n    },\n    {\n        \"id\": 5,\n        \"uid\": \"34fg12ff14jda73b7ad3f90f3287\",\n        \"cadastralnumber\": \"21:34:45:63:98:03\",\n        \"content\": \"Testing JSON 04\",\n        \"namejsonfile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile2.json\",\n        \"namepdffile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile2.pdf\",\n        \"createdAt\": \"2023-02-14T07:38:09.950Z\",\n        \"updatedAt\": \"2023-02-14T07:38:09.950Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "localhost:5000/cadastral/zip",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "uid",
+							"value": "dlfhdlfhjf72yfuqf977ffy98f",
+							"type": "text"
+						},
+						{
+							"key": "cadastralnumber",
+							"value": "27:54:82:00:87:45",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "Test for Docker 10",
+							"type": "text"
+						},
+						{
+							"key": "namedoc",
+							"type": "file",
+							"src": "/C:/JS/NestJS/Cadastral/dist/arc/arc.zip"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/cadastral/zip",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"cadastral",
+						"zip"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:5000/cadastral/pdf",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "uid",
+									"value": "dlfhdlfhjf72yfuqf977ffy98f",
+									"type": "text"
+								},
+								{
+									"key": "cadastralnumber",
+									"value": "27:54:82:00:87:45",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Test for Docker 10",
+									"type": "text"
+								},
+								{
+									"key": "namedoc",
+									"type": "file",
+									"src": "/C:/JS/in/arc.zip"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/cadastral/zip",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"cadastral",
+								"zip"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "655"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28f-U0cFPIpWzc4ZbEQ5k7J4cdxEBaU\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Feb 2023 07:38:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 4,\n        \"uid\": \"34fg21ff44jd34a2ad8752fd\",\n        \"cadastralnumber\": \"21:34:46:63:98:03\",\n        \"content\": \"Testing JSON 00\",\n        \"namejsonfile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile.json\",\n        \"namepdffile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile.pdf\",\n        \"createdAt\": \"2023-02-14T07:38:09.950Z\",\n        \"updatedAt\": \"2023-02-14T07:38:09.950Z\"\n    },\n    {\n        \"id\": 5,\n        \"uid\": \"34fg12ff14jda73b7ad3f90f3287\",\n        \"cadastralnumber\": \"21:34:45:63:98:03\",\n        \"content\": \"Testing JSON 04\",\n        \"namejsonfile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile2.json\",\n        \"namepdffile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile2.pdf\",\n        \"createdAt\": \"2023-02-14T07:38:09.950Z\",\n        \"updatedAt\": \"2023-02-14T07:38:09.950Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "localhost:5000/cadastral/path",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"pathcadastral\":\".\\\\in\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/cadastral/path",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"cadastral",
+						"path"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:5000/cadastral/pdf",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "uid",
+									"value": "dlfhdlfhjf72yfuqf977ffy98f",
+									"type": "text"
+								},
+								{
+									"key": "cadastralnumber",
+									"value": "27:54:82:00:87:45",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Test for Docker 10",
+									"type": "text"
+								},
+								{
+									"key": "namedoc",
+									"type": "file",
+									"src": "/C:/JS/in/arc.zip"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/cadastral/zip",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"cadastral",
+								"zip"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "655"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28f-U0cFPIpWzc4ZbEQ5k7J4cdxEBaU\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Feb 2023 07:38:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 4,\n        \"uid\": \"34fg21ff44jd34a2ad8752fd\",\n        \"cadastralnumber\": \"21:34:46:63:98:03\",\n        \"content\": \"Testing JSON 00\",\n        \"namejsonfile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile.json\",\n        \"namepdffile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile.pdf\",\n        \"createdAt\": \"2023-02-14T07:38:09.950Z\",\n        \"updatedAt\": \"2023-02-14T07:38:09.950Z\"\n    },\n    {\n        \"id\": 5,\n        \"uid\": \"34fg12ff14jda73b7ad3f90f3287\",\n        \"cadastralnumber\": \"21:34:45:63:98:03\",\n        \"content\": \"Testing JSON 04\",\n        \"namejsonfile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile2.json\",\n        \"namepdffile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile2.pdf\",\n        \"createdAt\": \"2023-02-14T07:38:09.950Z\",\n        \"updatedAt\": \"2023-02-14T07:38:09.950Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "localhost:5000/cadastral/pdf",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "uid",
+							"value": "dlfhdlfhjf72yfuqf977ffy98f1277",
+							"type": "text"
+						},
+						{
+							"key": "cadastralnumber",
+							"value": "27:54:82:00:87:45:63",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "Test for PDF 010",
+							"type": "text"
+						},
+						{
+							"key": "namepdffile",
+							"type": "file",
+							"src": "/C:/JS/NestJS/Cadastral/dist/arc/infile2.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/cadastral/pdf",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"cadastral",
+						"pdf"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:5000/cadastral/pdf",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "uid",
+									"value": "dlfhdlfhjf72yfuqf977ffy98f",
+									"type": "text"
+								},
+								{
+									"key": "cadastralnumber",
+									"value": "27:54:82:00:87:45",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Test for Docker 10",
+									"type": "text"
+								},
+								{
+									"key": "namedoc",
+									"type": "file",
+									"src": "/C:/JS/in/arc.zip"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/cadastral/zip",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"cadastral",
+								"zip"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "655"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28f-U0cFPIpWzc4ZbEQ5k7J4cdxEBaU\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Feb 2023 07:38:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 4,\n        \"uid\": \"34fg21ff44jd34a2ad8752fd\",\n        \"cadastralnumber\": \"21:34:46:63:98:03\",\n        \"content\": \"Testing JSON 00\",\n        \"namejsonfile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile.json\",\n        \"namepdffile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile.pdf\",\n        \"createdAt\": \"2023-02-14T07:38:09.950Z\",\n        \"updatedAt\": \"2023-02-14T07:38:09.950Z\"\n    },\n    {\n        \"id\": 5,\n        \"uid\": \"34fg12ff14jda73b7ad3f90f3287\",\n        \"cadastralnumber\": \"21:34:45:63:98:03\",\n        \"content\": \"Testing JSON 04\",\n        \"namejsonfile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile2.json\",\n        \"namepdffile\": \"C:\\\\JS\\\\NestJS\\\\Cadastral\\\\dist\\\\arczip\\\\infile2.pdf\",\n        \"createdAt\": \"2023-02-14T07:38:09.950Z\",\n        \"updatedAt\": \"2023-02-14T07:38:09.950Z\"\n    }\n]"
+				}
+			]
+		}
+	]
+}
