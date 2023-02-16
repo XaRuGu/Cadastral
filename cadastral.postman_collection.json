@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a988694e-7cc3-47c5-bade-8460e8fa1c6e",
+		"_postman_id": "2d3bac59-e248-48c8-aaae-6416e57d10a0",
 		"name": "cadastral",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "25185418"
@@ -40,13 +40,23 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:5000/cadastral",
+					"raw": "localhost:5000/cadastral?limit=3&offset=5",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
 						"cadastral"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "offset",
+							"value": "5"
+						}
 					]
 				},
 				"description": "ZIP"

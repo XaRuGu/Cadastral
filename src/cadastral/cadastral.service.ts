@@ -37,4 +37,13 @@ export class CadastralService {
         const cadastr = await this.cadastrRepository.findAll({include: {all: true}});
         return cadastr;
     }
+
+    async getCountAllCadastr(nOffset:any, nLimit:any) {
+        const { count, rows } = await this.cadastrRepository.findAndCountAll({
+            offset: nOffset,
+            limit: nLimit
+        });
+          
+        return rows;
+    }
 }

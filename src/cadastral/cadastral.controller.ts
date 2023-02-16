@@ -1,11 +1,12 @@
-import {Body, Controller, Post, Get, UploadedFile, UseInterceptors} from '@nestjs/common';
-import {ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
-import {CreateCadastrDto} from "./dto/create-cadastral.dto";
-import {UploadCadastrDto} from "./dto/upload-cadastral.dto";
-import {PathCadastrDto} from "./dto/path-cadastral.dto";
-import {Cadastr} from "./cadastral.model";
-import {CadastralService} from "./cadastral.service";
-import {FileInterceptor} from "@nestjs/platform-express";
+import { Body, Controller, Post, Get, UploadedFile, UseInterceptors, Query } from '@nestjs/common';
+// import { ParseIntPipe } from "class-validator"
+import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
+import { CreateCadastrDto } from "./dto/create-cadastral.dto";
+import { UploadCadastrDto } from "./dto/upload-cadastral.dto";
+import { PathCadastrDto } from "./dto/path-cadastral.dto";
+import { Cadastr } from "./cadastral.model";
+import { CadastralService } from "./cadastral.service";
+import { FileInterceptor } from "@nestjs/platform-express";
 
 @ApiTags('Работа с кадастровыми файлами')
 @Controller('cadastral')
@@ -38,10 +39,18 @@ export class CadastralController {
         return this.cadastrService.path(dto)    
     }
 
-    @ApiOperation({summary: 'Получить все записи из таблицы Cadastral'})
+    // @ApiOperation({summary: 'Получить все записи из таблицы Cadastral'})
+    // @ApiResponse({status: 200, type: Cadastr})
+    // @Get()
+    // getAll() {
+    //     return this.cadastrService.getAllCadastr();
+    // }
+    
+    @ApiOperation({summary: 'Получить данные с помощью limit и offset из таблицы Cadastral'})
     @ApiResponse({status: 200, type: Cadastr})
     @Get()
-    getAll() {
-        return this.cadastrService.getAllCadastr();
+    getCountAll(@Query('offset') offset: number, @Query('limit') limit: number) {
+        return this.cadastrService.getCountAllCadastr(offset,limit);
     }
+    
 }
