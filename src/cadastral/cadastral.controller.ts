@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Get, UploadedFile, UseInterceptors, Query } from '@nestjs/common';
+import { Body, Controller, Post, Get, UploadedFile, UseInterceptors, Query, Param } from '@nestjs/common';
 // import { ParseIntPipe } from "class-validator"
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { CreateCadastrDto } from "./dto/create-cadastral.dto";
@@ -53,4 +53,8 @@ export class CadastralController {
         return this.cadastrService.getCountAllCadastr(offset,limit);
     }
     
+    @Get('/:cadastralnumber')
+    getByValue(@Param('cadastralnumber') cadastralnumber: string) {
+        return this.cadastrService.getPdfFileByCadasr(cadastralnumber);
+    }
 }

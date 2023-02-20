@@ -46,4 +46,12 @@ export class CadastralService {
           
         return rows;
     }
+
+    async getPdfFileByCadasr(cadastralnumber: string) {
+        const itemcadastr = await this.cadastrRepository.findOne({where: {cadastralnumber}})
+        console.log(itemcadastr)
+        const pdffile = await this.fileService.readFile(itemcadastr);
+                       
+        return pdffile;
+    }
 }
