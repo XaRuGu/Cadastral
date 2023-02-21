@@ -21,17 +21,15 @@ export class CadastralService {
 
     async upload(dto: UploadCadastrDto, namedoc: any) {
         const compareFiles = await this.fileService.uploadFile(namedoc);
-        const cadastr = await this.cadastrRepository.bulkCreate(compareFiles) 
-        return cadastr;
+        const compareFilesNow = await this.bulkFindOrCreate(compareFiles) 
+        return compareFilesNow;
     }
 
     async path(dto: PathCadastrDto) {
         const compareFiles = await this.fileService.pathFiles(dto.pathcadastral);
-        const cadastr = await this.cadastrRepository.bulkCreate(compareFiles)
-            // [{ cadastralnumber: '21:45:74:34', content: 'Testing 01', pathdoc: 'c:\\js\\in', namedoc:'cadastral01.pdf' },
-            // { cadastralnumber: '83:41:70:36', content: 'Testing 01', pathdoc: 'c:\\js\\in', namedoc:'cadastral02.pdf' }
-            // , { fields: ['cadastralnumber', 'namedoc']}] 
-        return cadastr;
+        const compareFilesNow = await this.bulkFindOrCreate(compareFiles)
+        // const cadastr = await this.cadastrRepository.bulkCreate(compareFiles, {validate: true})
+        return compareFilesNow; 
     }
 
     async getAllCadastr() {
@@ -51,9 +49,33 @@ export class CadastralService {
     async getPdfFileByCadasr(cadastralnumber: string) {
         const itemcadastr = await this.cadastrRepository.findOne({where: {cadastralnumber}, 
             order: [['id', 'DESC']] })
-        // console.log(itemcadastr)
+        
         const pdffile = await this.fileService.readFile(itemcadastr);
                        
         return pdffile;
+    }
+
+    async bulkFindOrCreate(compareFiles: any[] ) {
+        let compareFilesNow = []
+
+        for (let item of compareFiles) {    
+            let errname: string
+
+            const [itemNow, created] = await this.cadastrRepository.findOrCreate({
+                where: { uid: item.uid },
+                defaults: item
+            });
+                
+            if (!created) {
+                errname = `Ошибка. UID - ${item.uid} в файле JSON - ${item.namejsonfile} уже присутствует в БД. Запись в БД не произведена.`
+            } else {
+                errname = `Запись с UID - ${item.uid} из файле JSON - ${item.namejsonfile} добавлена в БД.`                    
+            }
+                
+            compareFilesNow.push({...item, message: errname})
+        }                            
+           
+    return compareFilesNow;
+        
     }
 }
