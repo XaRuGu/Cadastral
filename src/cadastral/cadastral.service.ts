@@ -3,6 +3,7 @@ import {CreateCadastrDto} from "./dto/create-cadastral.dto";
 import {UploadCadastrDto} from "./dto/upload-cadastral.dto";
 import {PathCadastrDto} from "./dto/path-cadastral.dto";
 import {InjectModel} from "@nestjs/sequelize";
+import {Sequelize} from "sequelize";
 import {Cadastr} from "./cadastral.model";
 import {FilesService} from "../files/files.service";
 
@@ -48,8 +49,9 @@ export class CadastralService {
     }
 
     async getPdfFileByCadasr(cadastralnumber: string) {
-        const itemcadastr = await this.cadastrRepository.findOne({where: {cadastralnumber}})
-        console.log(itemcadastr)
+        const itemcadastr = await this.cadastrRepository.findOne({where: {cadastralnumber}, 
+            order: [['id', 'DESC']] })
+        // console.log(itemcadastr)
         const pdffile = await this.fileService.readFile(itemcadastr);
                        
         return pdffile;
